@@ -94,3 +94,10 @@ $borderRadius: 15px;
     color: white;
   }
 }
+
+.filter-container {
+  @include flex(row, space-between);
+
+  padding: 20px;
+  font-size: 20px;
+}

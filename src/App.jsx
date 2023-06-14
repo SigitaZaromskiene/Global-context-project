@@ -7,6 +7,7 @@ import { useEffect, useState, useContext } from "react";
 import { read, create } from "./Components/localStorage";
 
 import { Global } from "./Components/Global";
+import FilterComponent from "./Components/FilterComponent";
 
 const localKey = "KEY";
 
@@ -14,7 +15,6 @@ function App() {
   const [lastUpdate, setLastUpdate] = useState(Date.now());
   const [dataList, setDataList] = useState(null);
   const [details, setDetails] = useState(null);
-
   const [formAdd, setFormAdd] = useState(false);
   const [primaryForm, setPrimaryForm] = useState(true);
 
@@ -40,7 +40,7 @@ function App() {
               setPrimaryForm={setPrimaryForm}
             />
           ) : null}
-
+          <FilterComponent dataList={dataList} />
           {formAdd ? <ExpensesForm setDetails={setDetails} /> : null}
 
           <ExpensesList dataList={dataList} />

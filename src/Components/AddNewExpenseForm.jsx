@@ -1,6 +1,3 @@
-import { useContext } from "react";
-import { Global } from "./Global";
-
 function AddNewExpenseForm({ setFormAdd, setPrimaryForm }) {
   const addFormHandler = () => {
     setFormAdd(true);
