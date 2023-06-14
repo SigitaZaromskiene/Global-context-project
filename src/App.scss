@@ -1,0 +1,70 @@
+$mainGray: rgb(75, 70, 70);
+$mainPurple: rgb(147, 38, 147);
+$borderRadius: 15px;
+
+%flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex($direction, $justifyContent) {
+  display: flex;
+  justify-content: $justifyContent;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+.app-container {
+  background-color: $mainGray;
+  min-height: 100vh;
+
+  .app-content {
+    @include flex(column, center);
+
+    .expenses-form {
+      @include flex(row, center);
+      margin-top: 50px;
+      height: 200px;
+      width: 1000px;
+      background-color: $mainPurple;
+      gap: 50px;
+      border-radius: $borderRadius;
+
+      .input-container {
+        @include flex(column, center);
+        gap: 20px;
+        font-size: 24px;
+
+        input {
+          height: 30px;
+          width: 150px;
+        }
+
+        .input-expense {
+          width: 250px;
+        }
+      }
+    }
+
+    .form-container {
+      background-color: $mainPurple;
+      @extend %flexCenter;
+      margin-top: 50px;
+      height: 110px;
+      width: 1000px;
+      border-radius: $borderRadius;
+
+      .button-add {
+        background-color: rgb(58, 11, 58);
+        cursor: pointer;
+        height: 70px;
+        width: 180px;
+        border-radius: $borderRadius;
+        border: none;
+        font-size: 18px;
+        color: white;
+      }
+    }
+  }
+}
