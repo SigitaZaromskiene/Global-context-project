@@ -3,6 +3,7 @@ import "./App.scss";
 import AddNewExpenseForm from "./Components/AddNewExpenseForm";
 import ExpensesForm from "./Components/ExpensesForm";
 import { GlobalProvider } from "./Components/Global";
+import ExpensesList from "./Components/ExpensesList";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <div className="app-content">
           <AddNewExpenseForm />
           <ExpensesForm />
+          <ExpensesList />
         </div>
       </div>
     </GlobalProvider>

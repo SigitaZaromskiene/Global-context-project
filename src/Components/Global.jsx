@@ -10,7 +10,16 @@ export const GlobalProvider = ({ children }) => {
 
   return (
     <Global.Provider
-      value={{ sum, setSum, expense, setExpense, setDetails, date, setDate }}
+      value={{
+        sum,
+        setSum,
+        expense,
+        setExpense,
+        setDetails,
+        date,
+        setDate,
+        details,
+      }}
     >
       {children}
     </Global.Provider>
