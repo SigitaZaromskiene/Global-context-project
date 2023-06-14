@@ -1,10 +1,16 @@
 import { useContext } from "react";
 import { Global } from "./Global";
 
-function AddNewExpenseForm() {
+function AddNewExpenseForm({ setFormAdd, setPrimaryForm }) {
+  const addFormHandler = () => {
+    setFormAdd(true);
+    setPrimaryForm(false);
+  };
   return (
     <div className="form-container">
-      <button className="button-add">Add new expense</button>
+      <button className="button-add" onClick={addFormHandler}>
+        Add new expense
+      </button>
     </div>
   );
 }

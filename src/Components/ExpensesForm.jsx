@@ -1,53 +1,43 @@
 import { useContext, useState } from "react";
 import { Global } from "./Global";
 
-function ExpensesForm() {
-  const {
-    setDetails,
-    sum,
-    setSum,
-    expense,
-    setExpense,
-    date,
-    setDate,
-    details,
-  } = useContext(Global);
+function ExpensesForm({ setDetails }) {
+  const { sum, setSum, expense, setExpense, date, setDate } =
+    useContext(Global);
 
   const detailsHandler = () => {
-    setDetails((li) => [
-      ...li,
-      {
-        expense: expense,
-        sum: parseInt(sum),
-        date: date,
-      },
-    ]);
+    setDetails({
+      expense: expense,
+      sum: parseInt(sum),
+      date: date,
+    });
     setExpense("");
     setSum(0);
     setDate(Date.now());
   };
 
-  console.log(details);
   return (
     <div className="expenses-form">
-      <div className="input-container">
+      <form className="input-container">
         <label>Expense</label>
         <input
           className="input-expense"
           type="text"
           value={expense}
+          required
           onChange={(e) => setExpense(e.target.value)}
         ></input>
-      </div>
-      <div className="input-container">
+      </form>
+      <form className="input-container">
         <label>Sum</label>
         <input
           type="number"
           value={sum}
+          required
           onChange={(e) => setSum(e.target.value)}
         ></input>
-      </div>
-      <div className="input-container">
+      </form>
+      <form className="input-container">
         <label>Date</label>
         <input
           type="date"
@@ -56,8 +46,8 @@ function ExpensesForm() {
           value={date}
           onChange={(e) => setDate(e.target.value)}
         ></input>
-      </div>
-      <button className="submit-btn" onClick={detailsHandler}>
+      </form>
+      <button type="submit" className="submit-btn" onClick={detailsHandler}>
         Submit
       </button>
     </div>
