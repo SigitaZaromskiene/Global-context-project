@@ -1,12 +1,18 @@
 import { createContext, useState } from "react";
-import AddNewExpenseForm from "./AddNewExpenseForm";
 
 export const Global = createContext();
 
-const GlobalProvider = ({ children }) => {
-  const [formAdd, formAddHandler] = useState(AddNewExpenseForm);
+export const GlobalProvider = ({ children }) => {
+  const [expense, setExpense] = useState("");
+  const [sum, setSum] = useState(0);
+  const [date, setDate] = useState(Date.now());
+  const [details, setDetails] = useState([]);
 
-  return <Global.Provider value={formAddHandler}>{children}</Global.Provider>;
+  return (
+    <Global.Provider
+      value={{ sum, setSum, expense, setExpense, setDetails, date, setDate }}
+    >
+      {children}
+    </Global.Provider>
+  );
 };
-
-export default GlobalProvider;

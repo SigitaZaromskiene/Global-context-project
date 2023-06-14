@@ -31,6 +31,21 @@ $borderRadius: 15px;
       gap: 50px;
       border-radius: $borderRadius;
 
+      .submit-btn {
+        height: 50px;
+        width: 120px;
+        border-radius: $borderRadius;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        background-color: rgb(134, 160, 78);
+        font-weight: 600;
+        &:hover {
+          background-color: white;
+          color: black;
+        }
+      }
+
       .input-container {
         @include flex(column, center);
         gap: 20px;
