@@ -1,20 +1,27 @@
 import { useContext, useState } from "react";
 import { Global } from "./Global";
 
-function ExpensesForm({ setDetails }) {
+function ExpensesForm({ setDetails, setMessage }) {
   const { sum, setSum, expense, setExpense, date, setDate } =
     useContext(Global);
 
   const detailsHandler = () => {
-    setDetails({
-      expense: expense,
-      sum: parseInt(sum),
-      date: date,
-      show: true,
-    });
-    setExpense("");
-    setSum(0);
-    setDate(Date.now());
+    if (!sum || !expense) {
+      setMessage("Please fill all information");
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
+    } else {
+      setDetails({
+        expense: expense,
+        sum: parseInt(sum),
+        date: date,
+        show: true,
+      });
+      setExpense("");
+      setSum(0);
+      setDate(Date.now());
+    }
   };
 
   return (

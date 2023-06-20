@@ -17,7 +17,9 @@ function ExpensesList({ dataList }) {
               </div>
             </div>
           </div>
-        ) : null
+        ) : (
+          <p style={{ color: "white", fontSize: "24px" }}>No expenses</p>
+        )
       )}
     </>
   );
