@@ -10,6 +10,7 @@ function ExpensesForm({ setDetails }) {
       expense: expense,
       sum: parseInt(sum),
       date: date,
+      show: true,
     });
     setExpense("");
     setSum(0);

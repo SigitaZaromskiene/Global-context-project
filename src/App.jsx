@@ -3,10 +3,9 @@ import AddNewExpenseForm from "./Components/AddNewExpenseForm";
 import ExpensesForm from "./Components/ExpensesForm";
 import { GlobalProvider } from "./Components/Global";
 import ExpensesList from "./Components/ExpensesList";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { read, create } from "./Components/localStorage";
 
-import { Global } from "./Components/Global";
 import FilterComponent from "./Components/FilterComponent";
 
 const localKey = "KEY";
@@ -17,6 +16,7 @@ function App() {
   const [details, setDetails] = useState(null);
   const [formAdd, setFormAdd] = useState(false);
   const [primaryForm, setPrimaryForm] = useState(true);
+  const [year, setYear] = useState("2023");
 
   useEffect(() => {
     setDataList(read(localKey));
@@ -40,7 +40,11 @@ function App() {
               setPrimaryForm={setPrimaryForm}
             />
           ) : null}
-          <FilterComponent dataList={dataList} />
+          <FilterComponent
+            setDataList={setDataList}
+            setYear={setYear}
+            year={year}
+          />
           {formAdd ? <ExpensesForm setDetails={setDetails} /> : null}
 
           <ExpensesList dataList={dataList} />
