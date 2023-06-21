@@ -14,10 +14,8 @@ function ExpensesForm({ setDetails, setMessage }) {
 
       setExpense("");
       setSum("");
-      setDate(Date.now());
-    }
-
-    if (typeof expense !== "string" && expense.length < 3) {
+      setDate("");
+    } else if (typeof expense !== "string" || expense.length < 3) {
       setMessage("Expense is too short");
       setTimeout(() => {
         setMessage("");
@@ -25,10 +23,8 @@ function ExpensesForm({ setDetails, setMessage }) {
 
       setExpense("");
       setSum("");
-      setDate(Date.now());
-    }
-
-    if (!isFinite(sum) || sum % 1 !== 0) {
+      setDate("");
+    } else if (!isFinite(sum) || sum % 1 !== 0) {
       setMessage("Sum is not correct");
       setTimeout(() => {
         setMessage("");
@@ -36,16 +32,17 @@ function ExpensesForm({ setDetails, setMessage }) {
 
       setExpense("");
       setSum("");
-      setDate(Date.now());
+      setDate("");
+    } else {
+      setDetails({
+        expense: expense,
+        sum: parseInt(sum),
+        date: date,
+      });
+      setExpense("");
+      setSum("");
+      setDate("");
     }
-    setDetails({
-      expense: expense,
-      sum: parseInt(sum),
-      date: date,
-    });
-    setExpense("");
-    setSum(0);
-    setDate(Date.now());
   };
 
   return (

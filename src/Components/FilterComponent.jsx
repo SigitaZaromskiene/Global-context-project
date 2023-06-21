@@ -1,16 +1,4 @@
-import { useEffect } from "react";
-
-function FilterComponent({ setDataList, year, setYear, dataList }) {
-  // const selectHandler = (e) => {
-  //   setYear(e.target.value);
-
-  // setDataList((li) =>
-  //   li.map((d) =>
-  //     d.date.slice(0, 4) === year ? { ...d, show: true } : { ...d, show: false }
-  //   )
-
-  // );
-
+function FilterComponent({ year, setYear }) {
   return (
     <div
       style={{
