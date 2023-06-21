@@ -59,6 +59,10 @@ $borderRadius: 15px;
         .input-expense {
           width: 250px;
         }
+
+        .input-sum {
+          width: 130px;
+        }
       }
     }
 
@@ -153,4 +157,8 @@ $borderRadius: 15px;
       background-color: $mainPurple;
     }
   }
+}
+
+.redFrame {
+  background-color: red;
 }

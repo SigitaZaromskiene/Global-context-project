@@ -5,11 +5,15 @@ function ExpensesForm({ setDetails, setMessage, setPrimaryForm, setFormAdd }) {
   const { sum, setSum, expense, setExpense, date, setDate } =
     useContext(Global);
 
+  const [errorFrame, setErrorFrame] = useState(false);
+
   const detailsHandler = () => {
     if (!sum || !expense || !date) {
       setMessage("Please fill all information");
+      setErrorFrame(true);
       setTimeout(() => {
         setMessage("");
+        setErrorFrame(false);
       }, 2000);
 
       setExpense("");
@@ -52,7 +56,7 @@ function ExpensesForm({ setDetails, setMessage, setPrimaryForm, setFormAdd }) {
       <form className="input-container">
         <label>Expense</label>
         <input
-          className="input-expense"
+          className={`input-expense ${errorFrame ? "redFrame" : ""}`}
           type="text"
           value={expense}
           required
@@ -62,6 +66,7 @@ function ExpensesForm({ setDetails, setMessage, setPrimaryForm, setFormAdd }) {
       <form className="input-container">
         <label>Sum</label>
         <input
+          className={`input-sum ${errorFrame ? "redFrame" : ""}`}
           type="number"
           value={sum}
           required
@@ -71,6 +76,7 @@ function ExpensesForm({ setDetails, setMessage, setPrimaryForm, setFormAdd }) {
       <form className="input-container">
         <label>Date</label>
         <input
+          className={`input-sum ${errorFrame ? "redFrame" : ""}`}
           type="date"
           min="2021-01-01"
           max="2023-12-31"
