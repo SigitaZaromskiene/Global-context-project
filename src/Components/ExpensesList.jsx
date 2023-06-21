@@ -1,8 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
-import { useEffect } from "react";
 
-function ExpensesList({ dataList, year, setDataList }) {
-  console.log(dataList);
+function ExpensesList({ dataList, year }) {
   if (dataList === null) {
     return "Loading...";
   }

@@ -19,23 +19,6 @@ function App() {
   const [year, setYear] = useState("2023");
   const [message, setMessage] = useState("");
 
-  console.log(dataList);
-
-  // useEffect(() => {
-  //   if (year === null) {
-  //     return;
-  //   }
-  //   setDataList((li) =>
-  //     li.map((d) =>
-  //       d.date.slice(0, 4) === year
-  //         ? { ...d, show: true }
-  //         : { ...d, show: false }
-  //     )
-  //   );
-  // }, [year]);
-
-  console.log(year);
-
   useEffect(() => {
     setDataList(read(localKey));
   }, [lastUpdate]);

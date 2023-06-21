@@ -7,8 +7,6 @@ export const GlobalProvider = ({ children }) => {
   const [sum, setSum] = useState("");
   const [date, setDate] = useState("");
 
-  console.log(date);
-
   return (
     <Global.Provider
       value={{
