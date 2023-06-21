@@ -19,7 +19,22 @@ function App() {
   const [year, setYear] = useState("2023");
   const [message, setMessage] = useState("");
 
-  console.log(message);
+  console.log(dataList);
+
+  // useEffect(() => {
+  //   if (year === null) {
+  //     return;
+  //   }
+  //   setDataList((li) =>
+  //     li.map((d) =>
+  //       d.date.slice(0, 4) === year
+  //         ? { ...d, show: true }
+  //         : { ...d, show: false }
+  //     )
+  //   );
+  // }, [year]);
+
+  console.log(year);
 
   useEffect(() => {
     setDataList(read(localKey));
@@ -45,14 +60,21 @@ function App() {
           ) : null}
           <FilterComponent
             setDataList={setDataList}
-            setYear={setYear}
             year={year}
+            setYear={setYear}
+            dataList={dataList}
           />
-          {formAdd ? (
-            <ExpensesForm setDetails={setDetails} setMessage={setMessage} />
-          ) : null}
+          <ExpensesForm
+            setDetails={setDetails}
+            setMessage={setMessage}
+            details={details}
+          />
 
-          <ExpensesList dataList={dataList} />
+          <ExpensesList
+            dataList={dataList}
+            year={year}
+            setDataList={setDataList}
+          />
           {message ? <Message message={message} /> : null}
         </div>
       </div>

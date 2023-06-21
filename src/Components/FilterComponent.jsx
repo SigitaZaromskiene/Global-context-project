@@ -1,17 +1,16 @@
-function FilterComponent({ setDataList, setYear, year }) {
-  const selectHandler = (e) => {
-    setYear(e.target.value);
+import { useEffect } from "react";
 
-    console.log(year);
+function FilterComponent({ setDataList, year, setYear, dataList }) {
+  // const selectHandler = (e) => {
+  //   setYear(e.target.value);
 
-    setDataList((li) =>
-      li.map((d) =>
-        d.date.slice(0, 4) === year
-          ? { ...d, show: true }
-          : { ...d, show: false }
-      )
-    );
-  };
+  // setDataList((li) =>
+  //   li.map((d) =>
+  //     d.date.slice(0, 4) === year ? { ...d, show: true } : { ...d, show: false }
+  //   )
+
+  // );
+
   return (
     <div
       style={{
@@ -27,7 +26,7 @@ function FilterComponent({ setDataList, setYear, year }) {
         <p>Filter by year</p>
         <select
           style={{ fontSize: "18px", padding: "5px 15px", cursor: "pointer" }}
-          onChange={selectHandler}
+          onChange={(e) => setYear(e.target.value)}
           value={year}
         >
           {" "}

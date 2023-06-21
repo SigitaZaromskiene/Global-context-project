@@ -6,22 +6,46 @@ function ExpensesForm({ setDetails, setMessage }) {
     useContext(Global);
 
   const detailsHandler = () => {
-    if (!sum || !expense) {
+    if (!sum || !expense || !date) {
       setMessage("Please fill all information");
       setTimeout(() => {
         setMessage("");
       }, 2000);
-    } else {
-      setDetails({
-        expense: expense,
-        sum: parseInt(sum),
-        date: date,
-        show: true,
-      });
+
       setExpense("");
-      setSum(0);
+      setSum("");
       setDate(Date.now());
     }
+
+    if (typeof expense !== "string" && expense.length < 3) {
+      setMessage("Expense is too short");
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
+
+      setExpense("");
+      setSum("");
+      setDate(Date.now());
+    }
+
+    if (!isFinite(sum) || sum % 1 !== 0) {
+      setMessage("Sum is not correct");
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
+
+      setExpense("");
+      setSum("");
+      setDate(Date.now());
+    }
+    setDetails({
+      expense: expense,
+      sum: parseInt(sum),
+      date: date,
+    });
+    setExpense("");
+    setSum(0);
+    setDate(Date.now());
   };
 
   return (
