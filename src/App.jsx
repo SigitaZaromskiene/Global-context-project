@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { read, create } from "./Components/localStorage";
 import Message from "./Components/Message";
 import FilterComponent from "./Components/FilterComponent";
+import Chart from "./Components/Chart";
 
 const localKey = "KEY";
 
@@ -47,6 +48,7 @@ function App() {
             setYear={setYear}
             dataList={dataList}
           />
+          <Chart />
           {formAdd ? (
             <ExpensesForm
               setDetails={setDetails}
