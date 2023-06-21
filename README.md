@@ -8,6 +8,7 @@ This project is for educational porpuses only.
 -   Learning CRUD and using localStorage
 -   Using new hook useContext
 -   Using controlled forms
+-   Form validation
 
 
 # Getting Started with Create React App
