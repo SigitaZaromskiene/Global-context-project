@@ -47,11 +47,15 @@ function App() {
             setYear={setYear}
             dataList={dataList}
           />
-          <ExpensesForm
-            setDetails={setDetails}
-            setMessage={setMessage}
-            details={details}
-          />
+          {formAdd ? (
+            <ExpensesForm
+              setDetails={setDetails}
+              setMessage={setMessage}
+              details={details}
+              setPrimaryForm={setPrimaryForm}
+              setFormAdd={setFormAdd}
+            />
+          ) : null}
 
           <ExpensesList
             dataList={dataList}

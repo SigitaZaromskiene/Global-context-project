@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Global } from "./Global";
 
-function ExpensesForm({ setDetails, setMessage }) {
+function ExpensesForm({ setDetails, setMessage, setPrimaryForm, setFormAdd }) {
   const { sum, setSum, expense, setExpense, date, setDate } =
     useContext(Global);
 
@@ -42,6 +42,8 @@ function ExpensesForm({ setDetails, setMessage }) {
       setExpense("");
       setSum("");
       setDate("");
+      setPrimaryForm(true);
+      setFormAdd(false);
     }
   };
 
